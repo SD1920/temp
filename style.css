@@ -15,49 +15,69 @@ body {
 
 h1, h2, h3 {
     margin-bottom: 10px;
+    font-size: 1.8rem;
 }
 
+/* Progress Section */
 .progress-container {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: center; /* Center the progress bars */
+    gap: 20px;
     margin-bottom: 20px;
 }
 
 .name-section {
-    margin: 0 20px;
     text-align: center;
+    width: 100%; /* Full width for small screens */
+    max-width: 400px; /* Limit size for larger devices */
+    padding: 10px;
 }
 
 .progress-bar {
-    width: 200px;
-    height: 25px;
+    width: 100%; /* Full width on smaller screens */
+    max-width: 300px; /* Limit width for larger devices */
+    height: 20px;
     background-color: #333;
     border: 2px solid white;
-    position: relative;
-    margin: 10px auto;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
+    margin: 10px 0;
 }
 
 .progress-fill {
     height: 100%;
     background-color: limegreen;
-    width: 0; /* Initial progress set to 0% */
+    width: 0;
     transition: width 0.3s ease-in-out;
 }
 
+/* Topics Section */
 .topics-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: center; /* Center align */
+    gap: 20px; /* Space between columns */
+    margin-top: 20px;
+    overflow-x: auto; /* Allow horizontal scrolling if necessary */
 }
 
 .topics-column {
     text-align: left;
+    width: 100%; /* Full width for small screens */
+    max-width: 400px; /* Limit size for larger devices */
+    padding: 10px;
+    background: #222; /* Subtle background for separation */
+    border-radius: 8px;
+    flex: 1; /* Makes columns take equal space */
+    min-width: 45%; /* Ensure columns stay side-by-side on smaller screens */
 }
 
 ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 li {
@@ -66,4 +86,35 @@ li {
 
 label {
     cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1, h2, h3 {
+        font-size: 1.6rem;
+    }
+
+    .progress-bar {
+        max-width: 90%; /* Ensure progress bar fits small screens */
+        height: 18px;
+    }
+
+    ul {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, h2, h3 {
+        font-size: 1.4rem;
+    }
+
+    .progress-bar {
+        max-width: 95%;
+        height: 16px;
+    }
+
+    .topics-column {
+        font-size: 0.9rem;
+    }
 }
